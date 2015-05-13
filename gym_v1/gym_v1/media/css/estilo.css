@@ -1,0 +1,31 @@
+body{
+	background-image: url("/media/images/br1.png");
+	background-color: #FBF9FA;
+	/*background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 200px 720px;
+    margin-left: 210px;
+}
+
+img.prueba{
+	height: 300px;
+    width: 500px;
+    
+}
+
+section.textogeneral p{
+	font-family: "Trebuchet MS";
+	color:blue;
+}
+
+ul.navbar li{
+	display: inline;
+	background: white;
+}

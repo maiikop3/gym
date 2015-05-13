@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>{%block title%} {% endblock %}</title>
+	{%block css%}
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.css"/>	
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-theme.min.css"/>
+		<script src="/media/js/jquery.js"></script>
+		<script src="/media/bootstrap/js/bootstrap.js"></script>
+		<!-- admin -->
+		
+
+		<!--<style type="text/css">
+      body {
+        padding-top: 60px;
+    	}
+        </style>-->
+	<!--<h1>Aldama's Muay Thai </h1>-->
+	{% endblock%}
+</head>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+	 			<li><a href="/"> AMT GYM </a></li>
+	 			<li><a href="/about"> Acerca de Nosotros</a></li>
+	 			<li><a href="/productos/page/1">Productos</a></li>
+	 			<li><a href="/contacto/">Contacto</a></li>
+
+	 			{% block navbar %} {% endblock %}
+	 			{% if user.is_authenticated %}
+	 			<li class="dropdown"> 
+	 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">NOMBRE <span class="caret"></span></a>
+	 				<ul class="dropdown-menu" role="menu">
+            		<li><a href="#">Action</a></li>
+            		<li class="divider"></li>
+            		<li><a href="/logout/">Cerrar Sesion</a></li>
+	 			</li>
+	 			{% endif %}
+			</ul>
+		</div>
+	</nav><!--/navbar-->
+<body>
+	
+	<div>
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>
