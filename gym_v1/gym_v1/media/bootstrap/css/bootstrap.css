@@ -6582,3 +6582,43 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+#logonavbar{
+  height: 25px;
+  margin-top: -3px;
+  margin-right: 3px;
+}
+
+.slide-content a{
+  margin-top: 10px;
+}
+
+}
+.slide-image{
+  margin-left: 15%;
+}
+
+.col-lg-6{
+  margin-top: 20px;
+}
+
+.slide-content p{
+  color: white;
+}
+.slide-content h1{
+  color: white;
+}
+}
+.slide-content h2{
+  color: white;
+}
+
+.slide-wrapper{
+  margin-top: 4%;
+}
+
+
+.carousel .item{
+  background-image: url(/media/images/darkblack.png);
+  background-repeat: repeat;
+}
