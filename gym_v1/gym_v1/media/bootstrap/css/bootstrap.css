@@ -12,6 +12,7 @@ html {
 }
 body {
   margin: 0;
+  background-image: url(/media/images/rockywall.png);
 }
 article,
 aside,
@@ -6583,6 +6584,13 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
+
+
+
+
+
+
+
 #logonavbar{
   height: 25px;
   margin-top: -3px;
@@ -6593,13 +6601,19 @@ button.close {
   margin-top: 10px;
 }
 
+/*
 }
-.slide-image{
+.slide-image .imagen-thumb img{
   margin-left: 15%;
+  max-height: 50px;
+}*/
+
+.slide-image .thumbnail img{
+  max-height: 300px;
 }
 
 .col-lg-6{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .slide-content p{
@@ -6615,10 +6629,16 @@ button.close {
 
 .slide-wrapper{
   margin-top: 4%;
+  margin-bottom: 4%
+
 }
 
 
 .carousel .item{
-  background-image: url(/media/images/darkblack.png);
+  background-image: url(/media/images/penta.png);
   background-repeat: repeat;
 }
+
+
+
+
