@@ -105,7 +105,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'gym_v1.urls'
+ROOT_URLCONF = 'gym_v1.urls' 
 
 
 
