@@ -33,14 +33,18 @@
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 	 			<li><a href="/"><img id="logonavbar" src="/media/images/logo.png">AMT GYM</a></li>
-	 			<li><a href="/about"> Acerca de Nosotros</a></li>
+	 			<li><a href="/about">Nosotros</a></li>
+	 			<li><a href="#">Clases y Horarios</a></li>
 	 			<li><a href="/productos/page/1">Productos</a></li>
 	 			<li><a href="/contacto/">Contacto</a></li>
 
 	 			{% block navbar %} {% endblock %}
 	 			{% if user.is_authenticated %}
 	 			<li class="dropdown"> 
-	 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">NOMBRE <span class="caret"></span></a>
+	 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+	 					{% if user.is_authenticated %}
+							{{ user.username }}
+							{% endif %} <span class="caret"></span></a>
 	 				<ul class="dropdown-menu" role="menu">
             		<li><a href="#">Action</a></li>
             		<li class="divider"></li>

@@ -106,6 +106,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'gym_v1.urls'
 
+
+
+
+#config para utilizar userProfile
+AUTH_PROFILE_MODULE = 'home.userProfile'
+
+
+
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'gym_v1.wsgi.application'
 
@@ -127,6 +135,8 @@ INSTALLED_APPS = (
      'django.contrib.admin',
      'gym_v1.apps.general',
      'gym_v1.apps.webServices.wsProductos',
+     'gym_v1.apps.home',
+
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
 )
