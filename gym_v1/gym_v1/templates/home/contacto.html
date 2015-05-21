@@ -19,7 +19,57 @@
 				</form>
 			{% endif %}
 		</div> <!-- /.container fluid -->
-	  </div> <!-- /.panel body -->
-	</div> <!-- /.panel default -->
+	</div> <!-- /.panel body -->
+</div> <!-- /.panel default -->
+		
+		<div class="panel panel-default">
+		 	<div class="panel-heading">
+		    	<h3 class="panel-title">Panel title</h3>
+		 	</div>
+		 	<div class="panel-body">
+		    	<style>
+				    #map-canvas {
+				    width: 700px;
+				    height: 400px;
+				    }
+				</style>
+				    <script src="https://maps.googleapis.com/maps/api/js"></script>
+				    <script>
+				      function initialize() {
+				      	/*
+				        var mapCanvas = document.getElementById('map-canvas');
+				        var mapOptions = {
+				          center: new google.maps.LatLng(32.4829,-116.9521),
+				          zoom: 17,
+				          mapTypeId: google.maps.MapTypeId.ROADMAP
+				        }
+				        var map = new google.maps.Map(mapCanvas, mapOptions)
+				      }
+				      */
+						  var myLatlng = new google.maps.LatLng(32.4829,-116.9521);
+						  var mapOptions = {
+						    zoom: 15,
+						    center: myLatlng
+						  }
+						  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+						  var marker = new google.maps.Marker({
+						      position: myLatlng,
+						      map: map,
+						      title: 'Aldama Muay Thai GYM'
+						  });
+						}
+
+				      google.maps.event.addDomListener(window, 'load', initialize);
+				    </script>
+				  </head>
+				  <body>
+				    <div id="map-canvas"></div>
+		 	</div>
+		</div>
+
+		
+
+	  
 	
 {% endblock %}
