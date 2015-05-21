@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
-
 {% block title %} Agregar Producto {% endblock %}
+{% block content %}
 
-{% block content %} 
-		<form action ="." method="POST" enctype="multipart/form-data">
+<div class="panel panel-default">
+  <div class="panel-heading">Agregar Producto Nuevo</div>
+  <div class="panel-body">
+
+    <form action ="." method="POST" enctype="multipart/form-data"  >
 		{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Guargar">
 		<input type="reset" value ="Limpiar">
 	</form>
 
-	<br>
-	{{informacion}}
-<br>
-<a href="http://localhost:8000/productos/">Productos</a>
+		<br>
+		{{informacion}}
+		<br>
+		<a href="/productos/page/1/">Productos</a>
+  </div>
+</div>
+	
 {% endblock %}
 
