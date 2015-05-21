@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 {% block title %} Contacto {% endblock %}
 {% block content %} 
-	<div class="container-fluid">
-		{% if info_enviado %}
-			<h3>Gracias por enviar tu comentario. Nos pondremos en contacto contigo</h3><br>
-			La informacion reciboda fue:
-			<p>Email utilizado: {{email}}</p>
-			<p>Titulo: {{titulo}}</p>
-			<p>Texto: {{texto}}</p>
-		{% else %}
-			<form action="." method="POST" >
-				{% csrf_token %}
-				{{form.as_p}}
-				<button type="submit" class="btn btn-primary">Enviar</button>
-			</form>
-		{% endif %}
-	</div>
+	<div class="panel panel-default">
+	 <div class="panel-heading">Panel heading without title</div>
+	  <div class="panel-body">
+	    <div class="container-fluid">
+			{% if info_enviado %}
+				<h3>Gracias por enviar tu comentario. Nos pondremos en contacto contigo</h3><br>
+				La informacion reciboda fue:
+				<p>Email utilizado: {{email}}</p>
+				<p>Titulo: {{titulo}}</p>
+				<p>Texto: {{texto}}</p>
+			{% else %}
+				<form action="." method="POST" >
+					{% csrf_token %}
+					{{form.as_p}}
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			{% endif %}
+		</div> <!-- /.container fluid -->
+	  </div> <!-- /.panel body -->
+	</div> <!-- /.panel default -->
+	
 {% endblock %}

@@ -1,29 +1,36 @@
 {% extends 'base.html' %}
 {% block title %} Productos {% endblock %}
 {% block content %}
-		<h2>Productos Aldama existentes:</h2>
+
+	<div class="panel panel-default">
+	  <div class="panel-heading"><h4>Productos Aldama</h4></div>
+	  <div class="panel-body">
 		{% if user.is_authenticated %}
-			<a href="/add/producto/" type="button" class="btn btn-primary">Agregar Producto...</a>
+			<a href="/add/producto/" type="button" class="btn btn-primary">Agregar Producto...</a><br><br>
 		{% endif %}	
 		{% if productos %}
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<td>Nombre</td>
-						<td>Precio</td>
-						<td>Stock</td>
-					</tr>
-				</thead>
-			{% for p in productos %}
-				<tbody>
-					<tr>
-						<td>{{p.nombre}}</td>
-						<td>${{p.precio}}</td>
-						<td>{{p.stock}}</td>
-					</tr>
-				</tbody>
-			{% endfor %}
-			</table><!--/Table-->
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>Nombre</td>
+							<td>Precio</td>
+							<!--<td>Stock</td>-->
+						</tr>
+					</thead>
+				{% for p in productos %}
+					<tbody>
+						<tr>
+							<td>{{p.nombre}}</td>
+							<td>${{p.precio}}</td>
+							<!--<td>{{p.stock}}</td>-->
+							<td><a href="/producto/{{p.id}}/" type="button" class="btn btn-primary glyphicon glyphicon-search"> Ver</a></td>
+							{% if user.is_authenticated %}
+								<td><a href="/edit/producto/{{p.id}}/" type="button" class="btn btn-primary glyphicon glyphicon-pencil"> Editar</a></td>
+							{% endif %}
+						</tr>
+					</tbody>
+				{% endfor %}
+				</table><!--/Table-->
 		{% else %}
 			<div class="alert alert-danger" role="alert">No existen productos a la venta.</div>
 		{% endif %}
@@ -35,17 +42,18 @@
 						<li><a href="/productos/page/{{productos.previous_page_number}}">  Anterior </a></li>
 					{% else %}
 						<li><a href="#">Anterior</a></li>
-					{% endif %}
-					
+					{% endif %}			
 					{% if productos.has_next %}
 						<li><a href="/productos/page/{{productos.next_page_number}}"> Siguiente  </a></li>
-						{% else %}
-						<li><a href="#">Siguiente</a></li>
+					{% else %}
+							<li><a href="#">Siguiente</a></li>
 					{% endif %}
-					
+						
 					<li><a href="/productos/page/{{productos.paginator.num_pages}}" class="glyphicon glyphicon-fast-forward" aria-hidden="true" ></a></li><br><br>
 					<span class="label label-primary">P&aacute;gina {{productos.number}} de {{productos.paginator.num_pages}}</span>
 				{% endif %}
-			</ul><!--/Ul Pagination-->
-		</div><!--/Pagination-->
+				</ul><!--/Ul Pagination-->
+			</div><!--/Pagination-->
+		</div>
+	</div>
 {% endblock %}
