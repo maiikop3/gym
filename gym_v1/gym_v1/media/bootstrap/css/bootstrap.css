@@ -6639,6 +6639,15 @@ button.close {
   background-repeat: repeat;
 }
 
+/* Pagination colors  and buttons*/
 
+.pagination .glyphicon-fast-backward,
+.pagination .glyphicon-fast-forward,
+{
+  color: black;
+}
+.pagination .label-primary{
+  background-color: black;
+}
 
 

@@ -5,6 +5,45 @@ from gym_v1.apps.general.models import producto
 from django.http import HttpResponseRedirect
 
 def add_product_view(request):
+	info = "inicianlizando"
+	if request.method == "POST":
+		form = addProductForm(request.POST,request.FILES)
+		if form.is_valid():
+			add = form.save(commit=False)
+			add.status
+			add.save() #save info
+			form.save_m2m()#guarda las relacion de ManyToMany
+			info = "Guardado Satisfactoriamente!"
+			return HttpResponseRedirect('/producto/%s'%add.id)
+	else:
+		form = addProductForm()
+	ctx = {'form':form, 'informacion':info}
+	return render_to_response('ventas/addproducto.html', ctx, context_instance=RequestContext(request))	
+
+
+def edit_product_view(request,id_prod):
+	info = "inicianlizando"
+	prod = producto.objects.get(pk=id_prod)
+	if request.method == "POST":
+		form = addProductForm(request.POST,request.FILES,instance=prod)
+		if form.is_valid():
+			edit_prod = form.save(commit=False)
+			form.save_m2m()
+			edit_prod.status = True
+			edit_prod.save() #se guarda el objecto
+			info = "Correcto"
+			return HttpResponseRedirect('/producto/%s'%edit_prod.id)
+
+		
+	else:
+		form = addProductForm(instance=prod)
+	ctx = {'form':form, 'informacion':info, 'prod':prod}
+	return render_to_response('ventas/editProducto.html', ctx, context_instance=RequestContext(request))
+
+
+
+"""
+def add_product_view(request):
 	if request.method == "POST":
 			form = addProductForm(request.POST,request.FILES)
 			info = "inicianlizando"
@@ -23,7 +62,7 @@ def add_product_view(request):
 				p.stock = stock
 				p.status = True
 				p.save() #guardar la informacion en P
-				info = "Se guardo correctamente"
+				info = "Se guardo correctamente!"
 			else:
 				info = "Informacion con datos incorrectos"
 			form = addProductForm()
@@ -34,6 +73,8 @@ def add_product_view(request):
 		form = addProductForm()
 		ctx = {'form':form} 	
 		return render_to_response('ventas/addproducto.html',ctx, context_instance=RequestContext(request))
+
+
 
 
 def edit_product_view(request,id_prod):
@@ -64,3 +105,6 @@ def edit_product_view(request,id_prod):
 			})
 	ctx = {'form':form, 'producto':p}	
 	return render_to_response('ventas/editProducto.html', ctx, context_instance=RequestContext(request))
+
+
+"""

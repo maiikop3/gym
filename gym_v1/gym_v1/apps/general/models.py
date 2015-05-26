@@ -11,6 +11,15 @@ class cliente(models.Model):
 		nombreCompleto = "%s %s" % (self.nombre, self.apellidos)
 		return nombreCompleto
 
+class cateroriaProducto(models.Model):
+	nombre 	= models.CharField(max_length=20)
+	descripcion = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return self.nombre
+	
+		
+
 class producto(models.Model):
 
 	def url(self,filename):
@@ -23,6 +32,7 @@ class producto(models.Model):
 	imagen		= models.ImageField(upload_to=url, null=True, blank=True)
 	precio		= models.DecimalField(max_digits=6,decimal_places=2, null=True)
 	stock		= models.IntegerField(null=True, blank=True)
+	categorias	= models.ManyToManyField(cateroriaProducto, null=True, blank=True)
 
 	def __unicode__(self):
 		return self.nombre

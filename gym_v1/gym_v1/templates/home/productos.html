@@ -22,6 +22,7 @@
 						<tr>
 							<td>{{p.nombre}}</td>
 							<td>${{p.precio}}</td>
+							<td>{{p.categoria}}</td>
 							<!--<td>{{p.stock}}</td>-->
 							<td><a href="/producto/{{p.id}}/" type="button" class="btn btn-primary glyphicon glyphicon-search"> Ver</a></td>
 							{% if user.is_authenticated %}
